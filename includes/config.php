@@ -16,7 +16,7 @@
     require("constants.php");
     require("functions.php");
 
-    date_default_timezone_set('ETA');
+    date_default_timezone_set('America/New_York');
 
     // enable sessions
     session_start();
