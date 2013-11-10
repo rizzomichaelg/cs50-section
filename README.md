@@ -1,4 +1,4 @@
-cs50-section6
+cs50-section
 =============
 
 Basic introduction to website design for CS50 2013 Section6.
