@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>CS50 Section 7: Javascript</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script type="text/javascript">window.html5 || document.write('<script type="text/javascript" src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class='left'>
+          <h4><a class='toc_entry slide' href="#start">Home</a></h4>
+          <div><a class='toc_entry slide' href="#linking">Libraries</a></div>
+          <div><a class='toc_entry slide' href="#js">JS</a></div>
+          <div><a class='toc_entry slide' href="#jslibs">JS Libraries</a></div>
+        </div>
+        <div class='wrapper container'>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <h1>
+                    CS50 Section 7
+                </h1>
+                <h2>
+                    This is Javascript
+                </h2>
+            </nav>
+
+            <!-- Tab panes -->
+            <div>
+                <div class='content' id="start">
+                    <h2>
+                        File Types
+                    </h2>
+                    <p>
+                        Chances are that the HTML file will also reference other files, typically images, or scripts, or styles. Your computer will then connect to the server and request the other files as well. 
+                    </p>
+                    <p>
+                        Some files that a server might send over
+                    </P>
+                    <ul>
+                        <li>
+                            <b>HTML</b>: Defines the basic structure of pages.
+                        </li>
+                        <li>
+                            <b>CSS</b>: Defines the basic style of a page. 
+                        </li>
+                        <li>
+                            <b>JS</b>: Allows you to script interaction or dynamic elements on the page.
+                        </li>
+                        <li>
+                            <b>JPEG, JPG, PNG, BMP...</b>: Images.
+                        </li>
+                    </ul>
+                    <p><a class="btn btn-default slide" href="#linking">Let's Begin &raquo;</a></p>
+                </div>
+                <div class="content" id="linking">
+                    <h2>
+                        About Libraries
+                    </h2>
+                    <p>
+                        <b>Libraries (sometimes also called frameworks in this context)</b> are premade CSS/JS that you can use in your project. They speed up development time by allowing you to not write some common functions and instead focusing on the content specific to your site.
+                    </p>
+                    <hr>
+                    <h2>
+                        Including a Library
+                    </h2>
+                    <p>
+                        Typically including a library is as easy as including an external JS file:
+                    </p>
+                    <pre class="prettyprint lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;script.js&quot;&gt;&lt;/script&gt;</pre>
+                    <p>
+                        or CSS file:
+                    </p>
+                    <pre class="prettyprint lang-html">&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;</pre>
+                    <hr>
+                    <h2>
+                        Using a Library
+                    </h2>
+                    <p>
+                        Javascript libraries usually expose other functions you can call without having to write them yourself (similarly to cs50.h). CSS libraries typically provide classes you can add to tags to style them.
+                    </p>
+                    <hr>
+                    <h2>
+                        Open Source Licensing
+                    </h2>
+                    <p>
+                        Libraries are typically open-source projects, meaning the developer chose to make the source code freely available. With that said some authors elect to reserve certain rights, and thus include a LICENSE.txt with their project describing their stipulations to the use of their project (typically things like attribution, or that your project must not use their name). 
+                    </p>
+                    <p>
+                        <a href="http://choosealicense.com/licenses/" target="_blank">http://choosealicense.com/</a>
+                    </p>
+                    <p><a class="btn btn-default slide" href="#js">JS &raquo;</a></p>
+                </div>
+                <div class='content' id='js'>
+                    <h2>Javascript</h2>
+                    <h4>Variable Declarations</h4>
+<pre class='prettyprint lang-js'>
+    var s = "Hello World!";
+    var n = 3.14;
+    var b = true;
+
+    alert('Type of b: ' + typeof(b));
+    b = "now a string";
+    alert('Type of b: ' + typeof(b));
+</pre>
+                    <p>As we can, variable types in Javascript are <i>not</i> set. This is kind of like PHP where we could do something like:</p>
+<pre class='prettyprint lang-php'>
+    $var = 1;
+    $var = "Hello World!";
+</pre>
+                    <h4>Loops</h4>
+<pre class='prettyprint lang-js'>
+    for(/* init */; /* condition*/; /* update */)
+    {
+       /* code */
+    }
+
+
+    while(/* condition */)
+    {
+         /* code */
+    }
+
+    do {
+       /* code */
+    } while(/* condition */);
+</pre>
+                    <h4>Functions</h4>
+<pre class='prettyprint lang-js'>
+    function sum(x, y)
+    {
+        return x + y;
+    }
+    /* or */
+    var sum = function(x, y)
+    {
+        return x + y;
+    }
+
+    var sum = sum(3, 5);
+    alert("3 + 5 = " + sum);
+</pre>
+                <h4>Arrays</h4>
+<pre class='prettyprint lang-js'>
+    var arr = [];
+    var arr2 = ["Arrays", "in", "JS"];
+    var thirdElement = arr2[2];
+
+    var arr2len = arr2.length;
+
+    var arr3 = [2.3, true, 5];
+    arr3[2] = "not a number";
+    arr3[100] = "legit";
+</pre>
+                    <p>We can have "foreach" loops just like in PHP!  To do this, we call the forEach <i>method</i> on the array:</p>
+<pre class='prettyprint lang-js'>
+    array.forEach(function(eld,ind){
+        /* do something */
+    });
+
+    var arr = [1,2,3];
+    arr.forEach(function(elt,ind){
+        alert('elt: ' + elt +'\nind: ' + ind);
+    });
+</pre>
+                    <h4>Selectors</h4>
+                    <p>Often in JavaScript, we want to select particular elements in the <i>DOM</i>:</p>
+<pre class='prettyprint lang-js'>
+    document.title;
+    document.body;
+    document.body.innerHTML;
+    document.getElementsbyId(id);
+    document.getElementsByClass(class);
+    document.getElementsByTagName(tag); /* For example, "a" */
+</pre>
+                    <h4>Events and Event Listeners</h4>
+                    <p>Just like in breakout, a lot times we want to react to certain events happening.</p>
+<pre class='prettyprint lang-js'>
+    window.onload = function() {
+        var searchButton =    
+           document.getElementById("search_button");
+
+        searchButton.onclick = function() { 
+                alert("You clicked the search button");
+        }
+    }
+</pre>
+                    <p><a class="btn btn-default slide" href="#jslibs">JS Libraries &raquo;</a></p>
+                </div>
+                <div class='content' id="jslibs">
+                    <h2>
+                        jQuery
+                    </h2>
+                    <h3>
+                        About
+                    </h3>
+                    <p>
+                        jQuery is one of the main javascript libraries today. In fact, it is so common that many other libraries depend on you including it in your page so they can run. 
+                    </p>
+                    <p>
+                        jQuery is a convenience library that makes many common tasks in Javascript very simple. Among them: element selection, manipulation, animation, and event handling.
+                    </p>
+                    <h3>
+                        Installation
+                    </h3>
+                    <p>
+                        Head over to <a href="http://jquery.com/" target="_blank">jquery.com</a> and download and include the jquery js file in your page.
+                    </p>
+                    <h3>
+                        Usage
+                    </h3>
+                    <p>
+                        jQuery is very powerful and has many different functions, here we will only cover a few of them. To learn about jQuery's full capabilities, cruise on over to <a href="http://api.jquery.com/" target="_blank">api.jquery.com</a>. 
+                    </p>
+                    <h4>
+                        DOM Element Selection
+                    </h4>
+                    <p>
+                        The majority of jQuery's methods require you to select an element or set of elements. Selecting an element is done in a very similar fashion to CSS selectors.                         
+                    </p>
+                    <pre class="prettyprint lang-js">$(".foo")</pre>
+                    <p>
+                        Will select all elements with class foo.
+                    </p>
+                    <pre class="prettyprint lang-js">$("#bar")</pre>
+                    <p>
+                        Will select all elements with id bar.
+                    </p>
+                    <h4>
+                        DOM Element Manipulation
+                    </h4>
+                    <p>
+                        Once you have selected the element(s) you can do a wide range of things with them, including:                         
+                    </p>
+                    <pre class="prettyprint lang-js">$(".foo").css("color", "red");</pre>
+                    <p>
+                        Alter its CSS.
+                    </p>
+                    <pre class="prettyprint lang-js">$(".foo").html("Hello World!");</pre>
+                    <p>
+                        Alter its content.
+                    </p>
+                    <pre class="prettyprint lang-js">$(".foo").remove();</pre>
+                    <p>
+                        Delete it.
+                    </p>
+                    <h4>
+                        DOM Element Animation
+                    </h4>
+                    <p>
+                        JQuery provides a wide range of animation capacities, both for transitions:
+                    </p>
+                    <pre class="prettyprint lang-js">$(".foo").fadeOut();</pre>
+                    <p>
+                        or for aesthetic reasons:
+                    </p>
+<pre class="prettyprint lang-js">
+$(".foo").animate({
+    "width": "80px"
+});
+</pre>
+                    <h4>
+                        DOM Element Event Handling
+                    </h4>
+                    <p>
+                        Another cool thing that you can do with jQuery is listen for events:
+                    </p>
+<pre class="prettyprint lang-js">
+$(".foo").on("click", function (){
+    alert("Hi!");
+});
+</pre>
+<p>
+    Generally speaking,
+</p>
+<pre class="prettyprint lang-js">
+$(".foo").on("EVENT", function (){
+    // YOUR CODE HERE
+});
+</pre>    
+                    <h2>
+                        Bootstrap
+                    </h2>
+                    <h3>
+                        About
+                    </h3>
+                    <p>
+                        Bootstrap is both a CSS and a JS library. It gives a lot of classes to make pretty sites (without writing css), and it even includes normalize; it also has many JS functions to script interaction of common elements (Dropdown menus, tabs, etc.)
+                    </p>
+                    <h3>
+                        Installation
+                    </h3>
+                    <p>
+                        See <a href="http://getbootstrap.com/getting-started/" target="_blank">getbootstrap.com</a>.
+                    </p>
+                    <h3>
+                        Usage
+                    </h3>
+                    <p>
+                        Using the CSS component of Bootstrap is typically as easy as adding a few classes. To make a button you literally add the class btn and btn-primary (<a href="http://getbootstrap.com/css/#buttons" target="_blank">getbootstrap.com</a>).
+                    </p>
+                    <p>
+                        For the full list of JS components, see <a href="http://getbootstrap.com/javascript/" target="_blank">getbootstrap.com</a>.
+                    </p>
+                </div>
+            </div>
+        </div> <!-- /wrapper -->
+        
+        <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.10.1.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/prettify/run_prettify.js?lang=css&skin=sunburst&auto_load=true"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
